@@ -31,7 +31,7 @@ class TabIndex extends StatelessWidget {
           Info(
             showTitle: true,
           ),
-          Text('这里是内容区域'),
+          // Text('这里是内容区域'),
         ],
       ),
     );

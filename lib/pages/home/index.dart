@@ -25,13 +25,26 @@ List<BottomNavigationBarItem> barItemList = [
 
 // 3. 编写无状态组件
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  final String indexString;
+  const HomePage(this.indexString, {Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    int paramIndex = int.tryParse(widget.indexString);
+    if (null != paramIndex) {
+      setState(() {
+        _selectedIndex = paramIndex;
+      });
+    }
+  }
+
+  // int _currentIndex = 0;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {

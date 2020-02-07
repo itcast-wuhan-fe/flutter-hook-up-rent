@@ -27,10 +27,9 @@ samples, guidance on mobile development, and a full API reference.
 
 生成 model 执行命令：
 
- ```shell
-   flutter packages pub run build_runner build
-  ```
+```shell
+  flutter packages pub run build_runner build
+```
 
-  代码仓库：
-  http://git.itcast.cn/yangchuan/flutter-hook-up-rent.git
-  
+代码仓库：
+http://git.itcast.cn/yangchuan/flutter-hook-up-rent.git

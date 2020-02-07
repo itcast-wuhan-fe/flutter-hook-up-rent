@@ -13,7 +13,7 @@ import 'package:hook_up_rent/pages/setting.dart';
 
 class Routes {
 //   1. 定义路由名称
-  static String home = '/';
+  static String home = '/home/:index';
   static String login = '/login';
   static String register = '/register';
   static String roomDetail = '/roomDetail/:roomId';
@@ -26,7 +26,7 @@ class Routes {
 // 2. 定义路由处理函数
   static Handler _homeHandler =
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return HomePage();
+    return HomePage(params['index'][0]);
   });
   static Handler _loginHandler =
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {

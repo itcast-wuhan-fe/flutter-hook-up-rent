@@ -15,7 +15,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed('/');
+      Navigator.of(context).pushReplacementNamed('/home/0');
     });
     Timer.run(() {
       ScopedModelHelper.getModel<AuthModel>(context).initApp(context);
