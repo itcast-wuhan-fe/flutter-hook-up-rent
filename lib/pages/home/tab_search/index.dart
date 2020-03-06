@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hook_up_rent/models/room_list_item_data.dart';
 import 'package:hook_up_rent/pages/home/tab_search/filter_bar/data.dart';
+import 'package:hook_up_rent/utils/common_toast.dart';
 import 'package:hook_up_rent/utils/dio_http.dart';
 import 'package:hook_up_rent/utils/scopoed_model_helper.dart';
 import 'package:hook_up_rent/widgets/room_list_item_widget.dart';
@@ -12,7 +13,8 @@ import 'filter_bar/filter_drawer.dart';
 import 'filter_bar/index.dart';
 
 class TabSearch extends StatefulWidget {
-  const TabSearch({Key key}) : super(key: key);
+  final String rentType;
+  const TabSearch(this.rentType, {Key key}) : super(key: key);
 
   @override
   _TabSearchState createState() => _TabSearchState();
@@ -24,10 +26,13 @@ class _TabSearchState extends State<TabSearch> {
     var cityId = Uri.encodeQueryComponent(ScopedModelHelper.getAreaId(context));
     var area = Uri.encodeQueryComponent(data.areaId);
     var mode = Uri.encodeQueryComponent(data.rentTypeId);
+
     var price = Uri.encodeQueryComponent(data.priceId);
+    //price|2000=>2000;
+    price = price.replaceAll('PRICE%7C', '');
     var more = Uri.encodeQueryComponent(data.moreIds.join(','));
     String url = '/houses?cityId=' +
-        '$cityId&area=$area&mode=$mode&price=$price&more=$more&start=1&end=20';
+        '$cityId&area=$area&rentType=$mode&price=$price&more=$more&start=1&end=20';
     var res = await DioHttp.of(context).get(url);
     var resMap = json.decode(res.toString());
     List dataMap = resMap['body']['list'];
@@ -54,7 +59,7 @@ class _TabSearchState extends State<TabSearch> {
           showLoaction: true,
           showMap: true,
           onSearch: () {
-            Navigator.of(context).pushNamed('search');
+            CommonToast.showToast('该功能暂未实现，敬请期待！');
           },
         ),
         backgroundColor: Colors.white,
@@ -64,6 +69,7 @@ class _TabSearchState extends State<TabSearch> {
           Container(
             height: 41.0,
             child: FilterBar(
+              initRentType: widget.rentType,
               onChange: _onFilterBarChange,
             ),
           ),

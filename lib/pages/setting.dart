@@ -17,10 +17,10 @@ class SettingPage extends StatelessWidget {
           RaisedButton(
             onPressed: () {
               ScopedModelHelper.getModel<AuthModel>(context).logout();
-              CommonToast.showToast('已经退出登陆');
+              CommonToast.showToast('已经退出登录');
             },
             child: Text(
-              '退出登陆',
+              '退出登录',
               style: TextStyle(color: Colors.red),
             ),
           )

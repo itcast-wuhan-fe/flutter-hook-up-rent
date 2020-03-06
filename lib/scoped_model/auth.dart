@@ -29,6 +29,7 @@ class AuthModel extends Model {
     var res = await DioHttp.of(context).get(url, null, _token);
     var resMap = json.decode(res.toString());
     var data = resMap['body'];
+    if (data == null) return;
     var userInfo = UserInfo.fromJson(data);
     _userInfo = userInfo;
     notifyListeners();

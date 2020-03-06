@@ -38,7 +38,7 @@ class Header extends StatelessWidget {
                       Navigator.of(context).pushNamed('login');
                     },
                     child: Text(
-                      '登陆',
+                      '登录',
                       style: loginRegisterStyle,
                     ),
                   ),
@@ -58,7 +58,7 @@ class Header extends StatelessWidget {
                 ],
               ),
               Text(
-                '登陆后可以体验更多',
+                '登录后可以体验更多',
                 style: TextStyle(color: Colors.white),
               )
             ],
@@ -70,7 +70,7 @@ class Header extends StatelessWidget {
 
   Widget _loginBuilder(BuildContext context) {
     var userInfo = ScopedModelHelper.getModel<AuthModel>(context).userInfo;
-    String userName = userInfo?.nickname ?? '已登陆用户名';
+    String userName = userInfo?.nickname ?? '已登录用户名';
     String userImage = userInfo?.avatar ??
         "https://tva1.sinaimg.cn/large/006y8mN6ly1g6tbnovh8jj30hr0hrq3l.jpg";
 

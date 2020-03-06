@@ -15,11 +15,11 @@ class IndexNavigatorItem {
 List<IndexNavigatorItem> indexNavigatorItemList = [
   IndexNavigatorItem('整组', 'static/images/home_index_navigator_total.png',
       (BuildContext context) {
-    Navigator.of(context).pushReplacementNamed('home/1');
+    Navigator.of(context).pushReplacementNamed('home/1?rentType=true');
   }),
   IndexNavigatorItem('合租', 'static/images/home_index_navigator_share.png',
       (BuildContext context) {
-    Navigator.of(context).pushReplacementNamed('home/1');
+    Navigator.of(context).pushReplacementNamed('home/1?rentType=false');
   }),
   IndexNavigatorItem('地图找房', 'static/images/home_index_navigator_map.png',
       (BuildContext context) {

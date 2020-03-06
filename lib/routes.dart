@@ -26,7 +26,8 @@ class Routes {
 // 2. 定义路由处理函数
   static Handler _homeHandler =
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return HomePage(params['index'][0]);
+    return HomePage(params['index'][0],
+        params['rentType'] == null ? '' : params['rentType'][0]);
   });
   static Handler _loginHandler =
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {

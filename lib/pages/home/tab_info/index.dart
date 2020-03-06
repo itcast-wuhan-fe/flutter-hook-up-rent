@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hook_up_rent/pages/home/info/index.dart';
+import 'package:hook_up_rent/utils/common_toast.dart';
 import 'package:hook_up_rent/widgets/search_bar/index.dart';
 
 class TabInfo extends StatefulWidget {
@@ -17,7 +18,7 @@ class _TabInfoState extends State<TabInfo> {
         automaticallyImplyLeading: false,
         title: SearchBar(
           onSearch: () {
-            Navigator.of(context).pushNamed('search');
+            CommonToast.showToast('该功能暂未实现，敬请期待！');
           },
         ),
         backgroundColor: Colors.white,

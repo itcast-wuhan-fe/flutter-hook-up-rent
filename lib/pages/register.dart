@@ -105,7 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Text('已有账号，'),
                 FlatButton(
                   child: Text(
-                    '去登陆～',
+                    '去登录～',
                     style: TextStyle(color: Colors.green),
                   ),
                   onPressed: () {

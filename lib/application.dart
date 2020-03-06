@@ -22,7 +22,8 @@ class Application extends StatelessWidget {
             child: MaterialApp(
               theme: ThemeData(primaryColor: Colors.green),
               onGenerateRoute: router.generator,
-              initialRoute: Routes.loading,
+              initialRoute: '/loading',
+              // initialRoute: Routes.home,
             ),
           ),
         ));

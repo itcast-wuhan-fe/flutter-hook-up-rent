@@ -13,9 +13,11 @@ import 'item.dart';
 String lastCityId;
 
 class FilterBar extends StatefulWidget {
+  final String initRentType;
   final ValueChanged<FilterBarResult> onChange;
 
-  const FilterBar({Key key, this.onChange}) : super(key: key);
+  const FilterBar({Key key, this.onChange, this.initRentType})
+      : super(key: key);
 
   @override
   _FilterBarState createState() => _FilterBarState();
@@ -174,6 +176,9 @@ class _FilterBarState extends State<FilterBar> {
   void initState() {
     Timer.run(_getData);
     super.initState();
+    setState(() {
+      rentTypeId = widget.initRentType == null ? '' : widget.initRentType;
+    });
   }
 
   @override

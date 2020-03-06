@@ -27,6 +27,8 @@ class DioHttp {
           receiveTimeout: 1000 * 3,
           extra: {'context': context});
       Interceptor interceptor = InterceptorsWrapper(onResponse: (Response res) {
+        // print(res.request.path);
+
         if (null == res) return res;
         var status = json.decode(res.toString())['status'];
         if (404 == status) {
@@ -40,7 +42,7 @@ class DioHttp {
             return res;
           }
 
-          CommonToast.showToast('登陆过期');
+          CommonToast.showToast('登录过期');
           Navigator.of(context).pushNamed(Routes.login);
           return res;
         }

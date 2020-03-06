@@ -7,13 +7,16 @@ import 'package:hook_up_rent/pages/home/tab_profile/index.dart';
 import 'tab_index/index.dart';
 import 'tab_search/index.dart';
 
-// 1. 需要准备 4 个 tab 内容区（tabView）
-List<Widget> tabViewList = [
-  TabIndex(),
-  TabSearch(),
-  TabInfo(),
-  TabProfile(),
-];
+Widget getView(index, String rentType) {
+  var tabViewList = [
+    TabIndex(),
+    TabSearch(rentType),
+    TabInfo(),
+    TabProfile(),
+  ];
+  return tabViewList[index];
+}
+
 // 2. 需要准备 4 个 BottomNavigationBarItem
 
 List<BottomNavigationBarItem> barItemList = [
@@ -26,43 +29,54 @@ List<BottomNavigationBarItem> barItemList = [
 // 3. 编写无状态组件
 class HomePage extends StatefulWidget {
   final String indexString;
-  const HomePage(this.indexString, {Key key}) : super(key: key);
+  final String rentType;
+  const HomePage(this.indexString, this.rentType, {Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+// 1. 需要准备 4 个 tab 内容区（tabView）
+
   @override
   void initState() {
     super.initState();
     int paramIndex = int.tryParse(widget.indexString);
+    var rentType = widget.rentType;
     if (null != paramIndex) {
       setState(() {
         _selectedIndex = paramIndex;
+        _rentType = rentType;
       });
     }
   }
 
   // int _currentIndex = 0;
   int _selectedIndex = 0;
+  String _rentType = '';
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      _rentType = '';
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: tabViewList[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: barItemList,
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green,
-        onTap: _onItemTapped,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        // tabViewList[_selectedIndex]
+        body: getView(_selectedIndex, _rentType),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: barItemList,
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.green,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

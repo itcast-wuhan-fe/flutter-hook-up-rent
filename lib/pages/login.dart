@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('登陆'),
+        title: Text('登录'),
       ),
       body: SafeArea(
         minimum: EdgeInsets.all(30),
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
             RaisedButton(
               color: Colors.green,
               child: Text(
-                '登陆',
+                '登录',
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
