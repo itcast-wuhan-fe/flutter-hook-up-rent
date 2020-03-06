@@ -23,7 +23,7 @@ samples, guidance on mobile development, and a full API reference.
 [✓] VS Code (version 1.39.2)
 
 接口稳定：
-[接口文档](http://dev.itcastor.com:3333/)
+[接口文档](http://api-hookuprent-web.itheima.net/)
 
 生成 model 执行命令：
 
