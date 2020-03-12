@@ -31,5 +31,8 @@ samples, guidance on mobile development, and a full API reference.
   flutter packages pub run build_runner build
 ```
 
-代码仓库：
-http://git.itcast.cn/yangchuan/flutter-hook-up-rent.git
+虚拟机 显示键盘 CMD + Shift + K toggles connectivity of the hardware keyboard, which will open the software keyboard by default if the other one is disconnected. CMD + K toggles the visibility of the software keybaord.
+
+dart 2.3+ 支持列表 if 语法 https://github.com/flutter/flutter/issues/3783
+
+Android 模拟器 安装后没有网 https://stackoverflow.com/questions/48411091/mac-os-high-sierra-10-13-2-android-emulator-has-no-internet-connection?rq=1 设置 dns

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:hook_up_rent/models/room_list_item_data.dart';
-import 'package:hook_up_rent/pages/home/tab_search/data_list.dart';
+// import 'package:hook_up_rent/pages/home/tab_search/data_list.dart';
 import 'package:hook_up_rent/scoped_model/auth.dart';
 import 'package:hook_up_rent/utils/dio_http.dart';
 import 'package:hook_up_rent/utils/scopoed_model_helper.dart';
@@ -79,8 +79,8 @@ class _RoomManagePageState extends State<RoomManagePage> {
                   .toList(),
             ),
             ListView(
-              children:
-                  dataList.map((item) => RoomListItemWidget(item)).toList(),
+              children: List(),
+              // dataList.map((item) => RoomListItemWidget(item)).toList(),
             ),
           ],
         ),

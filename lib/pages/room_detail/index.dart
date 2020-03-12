@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hook_up_rent/config.dart';
 import 'package:hook_up_rent/models/room_detail_data.dart';
 import 'package:hook_up_rent/pages/home/info/index.dart';
+import 'package:hook_up_rent/utils/common_toast.dart';
 import 'package:hook_up_rent/utils/dio_http.dart';
 import 'package:hook_up_rent/widgets/common_swiper.dart';
 import 'package:hook_up_rent/widgets/common_tag.dart';
@@ -59,7 +60,7 @@ class _RoomDetailPageState extends State<RoomDetailPage> {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              Share.share('https://itcast.cn');
+              Share.share('https://itcast.cn#');
             },
             icon: Icon(Icons.share),
           )
@@ -195,7 +196,9 @@ class _RoomDetailPageState extends State<RoomDetailPage> {
                   ),
                   Expanded(
                       child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      CommonToast.showToast('该功能暂未实现，敬请期待！');
+                    },
                     child: Container(
                       height: 50.0,
                       margin: EdgeInsets.only(right: 5.0),
@@ -211,7 +214,9 @@ class _RoomDetailPageState extends State<RoomDetailPage> {
                   )),
                   Expanded(
                       child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      CommonToast.showToast('该功能暂未实现，敬请期待！');
+                    },
                     child: Container(
                       height: 50.0,
                       decoration: BoxDecoration(

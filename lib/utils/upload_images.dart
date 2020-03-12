@@ -20,10 +20,15 @@ Future<String> uploadImages(List<File> files, BuildContext context) async {
 //准备url
   String url = '/houses/image';
 
+  try {
 //发送请求，处理返回
-  var res = await DioHttp.of(context).postFormData(url, fromData, token);
-  var data = json.decode(res.toString())['body'];
-  String images = List<String>.from(data).join('|');
+    var res = await DioHttp.of(context).postFormData(url, fromData, token);
+    var data = json.decode(res.toString())['body'];
+    String images = List<String>.from(data).join('|');
 
-  return Future.value(images);
+    return Future.value(images);
+  } catch (err) {
+    print(err);
+  }
+  return Future.value(null);
 }

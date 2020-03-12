@@ -89,6 +89,7 @@ class _CommonImagePickerState extends State<CommonImagePicker> {
 
     return Container(
       padding: EdgeInsets.all(10.0),
+      width: MediaQuery.of(context).size.width,
       child: Wrap(
         spacing: 10.0,
         runSpacing: 10.0,

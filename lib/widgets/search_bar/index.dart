@@ -187,7 +187,12 @@ class _SearchBarState extends State<SearchBar> {
               ),
             ),
           if (widget.showMap != null)
-            CommonImage('static/icons/widget_search_bar_map.png'),
+            GestureDetector(
+              onTap: () {
+                CommonToast.showToast('该功能暂未实现，敬请期待！');
+              },
+              child: CommonImage('static/icons/widget_search_bar_map.png'),
+            ),
         ],
       ),
     );

@@ -24,11 +24,10 @@ class DioHttp {
       var options = BaseOptions(
           baseUrl: Config.BaseUrl,
           connectTimeout: 1000 * 10,
-          receiveTimeout: 1000 * 3,
-          extra: {'context': context});
+          receiveTimeout: 1000 * 5,
+          extra: {'context': context},
+          responseType: ResponseType.plain);
       Interceptor interceptor = InterceptorsWrapper(onResponse: (Response res) {
-        // print(res.request.path);
-
         if (null == res) return res;
         var status = json.decode(res.toString())['status'];
         if (404 == status) {
@@ -42,8 +41,12 @@ class DioHttp {
             return res;
           }
 
-          CommonToast.showToast('登录过期');
-          Navigator.of(context).pushNamed(Routes.login);
+          // 当前请求为登录请求则不处理
+          if (!res.request.path.startsWith('/user/login')) {
+            CommonToast.showToast('登录过期');
+            Navigator.of(context).pushNamed(Routes.login);
+          }
+
           return res;
         }
         return res;
@@ -70,6 +73,7 @@ class DioHttp {
       [Map<String, dynamic> params, String token]) async {
     var options = Options(
         contentType: ContentType.parse('multipart/form-data'),
+        responseType: ResponseType.plain,
         headers: {'Authorization': token});
     return await _client.post(path, data: params, options: options);
   }
